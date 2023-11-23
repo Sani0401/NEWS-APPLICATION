@@ -67,20 +67,22 @@ app.post("/login", async (req, res) => {
   var userID = body.username;
   var password = body.password;
   const user = await User.find({ username: userID });
+
   if (user) {
-    res.status(200).json({ message: "User Found..." });
+    res.status(200).json({ loggedUser: user });
   }
 });
 
 app.post("/search", async (req, res) => {
   var keyWord = req.body;
   const token = keyWord.query;
-
+  console.log(token);
   axios
     .get(
-      `https://newsapi.org/v2/everything?q=${token}&from=2023-10-21&sortBy=publishedAt&apiKey=b84e25ac5e4a40d0a9ee98e15f8b284d`
+      `https://newsapi.org/v2/everything?q=${token}&apiKey=b84e25ac5e4a40d0a9ee98e15f8b284d`
     )
     .then((response) => {
+      console.log("Data Fetched sucessfully");
       res.json(response.data);
     })
     .catch((error) => {
