@@ -1,0 +1,62 @@
+body{
+    background-color: #D0D4CA;
+}
+
+/* Main Container */
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   flex-direction: column;
+   
+   height: 100vh;
+  
+}
+
+.inputContainer{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.inputHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.inputLogo{
+    height: 90px;
+    width: 100px;
+}
+
+.inputTitle{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+}
+.inputForm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+ .inputUserName{
+margin: 15px;
+ }
+.inputPassword{
+    margin: 15px;
+}
+
+.inputButton{
+margin: 15px;
+}
+
+input{
+    height: 29px;
+    border-radius: 5px;
+    border: solid 1px;
+}
