@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Landing.css";
 
 function Landing() {
@@ -7,8 +8,16 @@ function Landing() {
   const [dateFilter, setDateFilter] = useState("");
   const [data, setData] = useState([]);
   const [fetched, setFetched] = useState(false);
+  const [article, setArticle] = useState({});
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isInitialRender = useRef(true);
 
   const handleSearch = async () => {
+    console.log(
+      "The logged user is: in the landing page",
+      location.state && location.state.userData
+    );
     try {
       const response = await axios.post("http://localhost:3001/search", {
         query,
@@ -31,6 +40,20 @@ function Landing() {
       console.error("Error", error.message);
     }
   };
+
+  const handleCardClick = (clickedArticle) => {
+    setArticle(clickedArticle);
+  };
+
+  useEffect(() => {
+    // Skip the initial render
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    }
+
+    navigate("/Article", { state: { Data: article } });
+  }, [article, navigate]);
 
   return (
     <>
@@ -56,7 +79,43 @@ function Landing() {
         </div>
       </div>
       {fetched && (
-        <div className="displayData">filteredData.map((data) => {})</div>
+        <div className="displayData">
+          <div className="dataContainer">
+            {data.map((article, index) => (
+              <div
+                key={index}
+                className="data_card"
+                onClick={() => handleCardClick(article)}
+              >
+                {/* Render your article data here */}
+                <img
+                  className="data_img"
+                  src={article.urlToImage}
+                  alt="Loading"
+                />
+                <p className="data_description">
+                  {" "}
+                  {article.description.slice(0, 100)}
+                  {article.description.length > 50 && "..."}
+                </p>
+                <div className="buttonContainer">
+                  <button
+                    type="button"
+                    className="data__button btn btn-outline-primary"
+                  >
+                    Read Now
+                  </button>
+                  <button
+                    type="button"
+                    className="data__button btn btn-outline-primary"
+                  >
+                    Read Later
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </>
   );

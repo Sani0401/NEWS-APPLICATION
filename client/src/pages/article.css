@@ -1,0 +1,57 @@
+
+body{
+    
+}
+
+.main__container{
+    background-color: white;
+}
+
+.main__header{
+  justify-content: center;
+  align-items: center;
+justify-content: center;
+  
+}
+
+.main__title{
+    font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.main__image{
+    height: 500px;
+    width:90%;
+    position: relative;
+    left: 50px;
+    border-radius: 20px;
+ 
+}
+
+.main__info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.infoAuthor{
+    margin-top: 25px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.main__content{
+    margin: 10px;
+    
+}
+
+.main__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}

@@ -1,82 +1,98 @@
 .mainContainer {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .input {
-    display: flex;
-    gap: 5px;
-    position: relative;
-    flex-direction: row;
-    align-items: center;
-    bottom: 200px;
-  }
-  
-  .mainInput {
-    flex: 1;
-    height: 35px;
-    margin: 10px;
-  
-  }
-  
-  .inputButton {
-    cursor: pointer;
-    height: 35px;
-  }
-  
-  .mainData {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
 
-    
-  }
-  
-  .dataContainer {
-    background-color: aqua;
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    width: 300px; /* Adjusted width */
-    margin: 10px;
-  }
-  
-  .dataImg {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .databtn {
-    display: flex;
-    gap: 10px;
-  }
-  
-  button {
-    cursor: pointer;
-  }
-
-  .dateInput{
-    height:35px
-  }
-
-.displayData{
-  background-color: red;
-  height: 100%;
-width: 100%;
+.input {
+  display: flex;
+  gap: 5px;
   position: relative;
-  bottom: 450px;
+  flex-direction: row;
+  align-items: center;
+  bottom: 200px;
+}
+
+.mainInput {
+  flex: 1;
+  height: 35px;
+  margin: 10px;
+}
+
+.inputButton {
+  cursor: pointer;
+  height: 35px;
+}
+
+.mainData {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dataContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /* Align cards to the left and right edges */
+  margin: 20px;
+}
+
+.data_card {
+  background-color: #ccc;
+  border-radius: 10px;
+  width: calc(25% - 20px); /* 25% width for each card with a gap of 20px between cards */
+  margin-bottom: 20px;
+}
+
+.data_img {
+  height: 200px;
+  width: 100%; /* Ensure the image takes the full width of the card */
+  border-radius: 8px;
+  object-fit: cover; /* Maintain aspect ratio for the image */
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.dateInput {
+  height: 35px;
+}
+
+.displayData {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  bottom: 400px;
+  align-content: start;
+}
+
+.test {
+  width: 100%;
+  height: 100%;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   
+}
+
+.data__button{
+margin: 10px;
+}
+
+.data_description{
+  margin: 10px;
 }
