@@ -90,6 +90,43 @@ app.post("/search", async (req, res) => {
     });
 });
 
+app.post("/addArticle", async (req, res) => {
+  const body = req.body;
+  console.log(body);
+  const userId = body.userId; // Fix this line
+  console.log(userId);
+  const newArticle = new ReadLater({
+    userId: userId,
+    title: body.article.title,
+    description: body.article.description,
+    imageLink: body.article.urlToImage,
+    articleLink: body.article.articleLink,
+  });
+
+  try {
+    const savedArticle = await newArticle.save();
+
+    res
+      .status(201)
+      .json({ message: "Article added successfully", article: savedArticle });
+  } catch (error) {
+    // Handle errors
+    console.error("Error adding article:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/getAllData", async (req, res) => {
+  try {
+    const allData = await ReadLater.find();
+
+    res.status(200).json({ allData });
+  } catch (error) {
+    console.error("Error fetching all data:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

@@ -12,11 +12,11 @@ function Landing() {
   const navigate = useNavigate();
   const location = useLocation();
   const isInitialRender = useRef(true);
-
+  const [userData, setUserData] = useState("");
   const handleSearch = async () => {
     console.log(
       "The logged user is: in the landing page",
-      location.state && location.state.userData
+      setUserData(location.state.userData)
     );
     try {
       const response = await axios.post("http://localhost:3001/search", {
@@ -52,7 +52,7 @@ function Landing() {
       return;
     }
 
-    navigate("/Article", { state: { Data: article } });
+    navigate("/Article", { state: { Data: article, uData: userData } });
   }, [article, navigate]);
 
   return (
@@ -76,6 +76,9 @@ function Landing() {
           >
             Search
           </button>
+          <button className="btn buttonA btn-outline-primary">
+            Saved Articles
+          </button>
         </div>
       </div>
       {fetched && (
@@ -94,7 +97,6 @@ function Landing() {
                   alt="Loading"
                 />
                 <p className="data_description">
-                  {" "}
                   {article.description.slice(0, 100)}
                   {article.description.length > 50 && "..."}
                 </p>
@@ -104,12 +106,6 @@ function Landing() {
                     className="data__button btn btn-outline-primary"
                   >
                     Read Now
-                  </button>
-                  <button
-                    type="button"
-                    className="data__button btn btn-outline-primary"
-                  >
-                    Read Later
                   </button>
                 </div>
               </div>
