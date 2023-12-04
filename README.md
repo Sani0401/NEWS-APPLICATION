@@ -35,7 +35,7 @@ Before running the application, ensure you have the following installed:
 3. Install backend dependencies:
    `cd server
 npm install`
-   4.Install frontend dependencies:
+4. Install frontend dependencies:
    `cd client
 npm install`
 
@@ -74,7 +74,6 @@ npm start`
 - POST /search: Search for news articles based on keywords.
 - POST /addArticle: Save an article for later reading.
 - GET /getAllData: Get all saved articles.
--
 
 # Contribution
 
