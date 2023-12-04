@@ -96,10 +96,7 @@ function Landing() {
                   src={article.urlToImage}
                   alt="Loading"
                 />
-                <p className="data_description">
-                  {article.description.slice(0, 100)}
-                  {article.description.length > 50 && "..."}
-                </p>
+                <p className="data_description">{article.description}</p>
                 <div className="buttonContainer">
                   <button
                     type="button"
